@@ -1,5 +1,5 @@
 
-## Kaggle top 10 Submission (90.8 MCC) Score
+
 # Binary Prediction of Poisinous Mushroom classification
 ## Kaggle top 10 Submission Score(90.8 MCC)
 RoadMap
