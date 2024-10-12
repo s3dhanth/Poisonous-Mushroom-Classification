@@ -1,6 +1,7 @@
-# Poisonous-Mushroom-Classification
+
 ## Kaggle top 10 Submission (90.8 MCC) Score
 # Binary Prediction of Poisinous Mushroom classification
+## Kaggle top 10 Submission Score(90.8 MCC)
 RoadMap
 - importing dataset
 - EDA Analysis
@@ -9,9 +10,6 @@ RoadMap
 - Model training (XGboost, logistic, K-Means, SVM)
 - Ensembling
 - Submission File
-
-
-
 
 ## Requirements
 
@@ -22,8 +20,7 @@ Install my-project with npm
   import numpy as np
   import matplotlib.pyplot as plt
   import seaborn as sns
-  import nltk
-  nltk.download('vader_lexicon')
+  
 ```
     
 ## Dataset Used: Kaggle Train.csv
@@ -38,11 +35,11 @@ Install my-project with npm
 ### Percentage of Missing values (train)
 ![missing_values](https://github.com/user-attachments/assets/8b2ec5e6-5d65-4187-83b0-6fbe808597f0)
 ### Percentage of Missing values (test)
+#### Similar pattern found in test dataframe
 ![test_missing_values](https://github.com/user-attachments/assets/1395d055-dc10-4e7e-9170-dd95cc4f7415)
 
 ### Distribution of Target Variable
 ![distribution_main](https://github.com/user-attachments/assets/7ce03fee-3f3f-46ff-b8ac-75692f2e20aa)
-
 
 ## Model - Xgboost
 #### Prediction probability (evaluation phase)
@@ -55,9 +52,10 @@ Install my-project with npm
 ## Model - CatBoost
 #### Prediction probability (evaluation phase)
 ![cat_boost](https://github.com/user-attachments/assets/5e694edc-80c9-4d16-bd0b-0535f5bf4684)
-
-### Ensemblling results
+### Conclusion - Xgboost tend to have much higher Confidence Level compared to Other Models
+### Ensembling results
+#### Hard and Soft Voting is analysed before Hill Climb Racing
 #### Stratified K-Fold is used during training and Optuna is used for Hyperparam Tuning
 ![ensembling_r](https://github.com/user-attachments/assets/e9343b86-1b19-4d1d-9d52-053b70abfae7)
-
+#### Submission file is created using Unique id's and Target Variable
 
