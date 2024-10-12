@@ -5,6 +5,7 @@ RoadMap
 - importing dataset
 - EDA Analysis
 - Data Transformation
+- Strategy -- Stratified K-Fold
 - Model training (XGboost, logistic, K-Means, SVM)
 - Ensembling
 - Submission File
@@ -30,69 +31,33 @@ Install my-project with npm
 ![App Screenshot](https://snipboard.io/yKeBXc.jpg)
 
 ## EDA Analyses
+### No. of unique values
+![unique_value_1](https://github.com/user-attachments/assets/d0ab4c44-3737-41c8-8af9-3e8689117a45)
+#### Distribution
+![unique_values](https://github.com/user-attachments/assets/1e54f85f-08c7-4b5c-9375-9a7c089c0dfe)
+### Percentage of Missing values (train)
+![missing_values](https://github.com/user-attachments/assets/8b2ec5e6-5d65-4187-83b0-6fbe808597f0)
+### Percentage of Missing values (test)
+![test_missing_values](https://github.com/user-attachments/assets/1395d055-dc10-4e7e-9170-dd95cc4f7415)
+
+### Distribution of Target Variable
+![distribution_main](https://github.com/user-attachments/assets/7ce03fee-3f3f-46ff-b8ac-75692f2e20aa)
 
 
+## Model - Xgboost
+#### Prediction probability (evaluation phase)
+![xgboost](https://github.com/user-attachments/assets/caa31ae5-e3ea-452d-ba36-fc1efaa926ca)
 
-## Model - VADER
+## Model - Random Forrest
+#### Prediction probability (evaluation phase)
+![random_forrest](https://github.com/user-attachments/assets/19e39339-503a-4d8c-9fe9-e5229917bd98)
 
-- return the 3 values- Pos, Neg and Compound
-## Positive Score (pos):
+## Model - CatBoost
+#### Prediction probability (evaluation phase)
+![cat_boost](https://github.com/user-attachments/assets/5e694edc-80c9-4d16-bd0b-0535f5bf4684)
 
-- This score indicates the strength of positive sentiment in the text.
-- It ranges from 0 to 1, where 1 indicates extreme positive      sentiment.
-
-## Negative Score (neg):
-
-- This score indicates the strength of negative sentiment in the text.
-- It also ranges from 0 to 1, where 1 indicates extreme negative sentiment.
-## Compound Score (compound):
-
-- The compound score is a single metric that calculates the overall sentiment of the text.
-- It's a normalized score that ranges from -1 (most negative) to +1 (most positive).
-## User Text classified in numerical representation
-
-![App Screenshot](https://snipboard.io/quOJ9V.jpg)
+### Ensemblling results
+#### Stratified K-Fold is used during training and Optuna is used for Hyperparam Tuning
+![ensembling_r](https://github.com/user-attachments/assets/e9343b86-1b19-4d1d-9d52-053b70abfae7)
 
 
-## VADER Predictions
-
-- Compound score predicted by model and Score(user rating)
-
-![App Screenshot](https://snipboard.io/Kv8LCQ.jpg)
-
-To deploy this project run
-
-```bash
-fig, axs = plt.subplots(1,3 , figsize = [15,6])
-sns.barplot(data = New_df, x = 'Score', y = 'compound', palette = 'hot', ax = axs[0])
-axs[0].set_title("compound score of amazon reviews")
-sns.barplot(data = New_df, x = 'Score', y = 'neg',palette = 'hot', ax = axs[1])
-axs[1].set_title("neg score of amazon reviews")
-sns.barplot(data = New_df, x = 'Score', y = 'pos',palette = 'hot', ax = axs[2])
-axs[2].set_title("pos score of amazon reviews")
-```
-![App Screenshot](https://snipboard.io/dAY4Fi.jpg)
-
-
-## RoberTa Predictions
-
-- Pretrained model
-- Trained on twitter base sentiments
-
-```bash
-    MODEL = f"cardiffnlp/twitter-roberta-base-sentiment"
-    tokenizer = AutoTokenizer.from_pretrained(MODEL)
-    model = AutoModelForSequenceClassification.from_pretrained(MODEL)
-```
-- Results
-
-![App Screenshot](https://snipboard.io/Vom2qL.jpg)
-
-
-## Test Cases (RoberTa)
-
-- When the Actual Score is 5 star but model predicted least value of pos
-![App Screenshot](https://snipboard.io/z32Vyf.jpg)
-
-- When the Actual Score is 5 star but model predicted least value of pos
-![App Screenshot](https://snipboard.io/nAOJPS.jpg)
